@@ -12,7 +12,10 @@ const argConfig = [
   { name: "target", alias: "t", type: Number }
 ];
 const options = cliArgs(argConfig);
+console.info(options);
 const { src, target } = options;
+console.info('src', src);
+console.info('target', target);
 
 getAsync(`git tag ${target} ${src}`)
   .then(({ stdout }) => {
