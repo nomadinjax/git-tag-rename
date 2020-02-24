@@ -18,17 +18,17 @@ console.info('src', src);
 console.info('target', target);
 
 getAsync(`git tag ${target} ${src}`)
-  .then(({ stdout }) => {
-    console.info(stdout);
+  .then((result1) => {
+    console.info(result1);
     getAsync(`git push --tags`)
-      .then(({ stdout }) => {
-        console.info(stdout);
+      .then((result2) => {
+        console.info(result2);
         getAsync(`git tag -d ${src}`)
-          .then(({ stdout }) => {
-            console.info(stdout);
+          .then((result3) => {
+            console.info(result3);
             getAsync(`git push origin :refs/tags/${src}`)
-              .then(({ stdout }) => {
-                console.info(stdout);
+              .then((result4) => {
+                console.info(result4);
               })
               .catch(error => console.error(error));
           })
