@@ -15,17 +15,14 @@ const options = cliArgs(argConfig);
 const { src, target } = options;
 
 getAsync(`git tag ${target} ${src}`)
-  .then((result1) => {
-    console.info(result1);
+  .then(() => {
     getAsync(`git push --tags`)
-      .then((result2) => {
-        console.info(result2);
+      .then(() => {
         getAsync(`git tag -d ${src}`)
-          .then((result3) => {
-            console.info(result3);
+          .then(() => {
             getAsync(`git push origin :refs/tags/${src}`)
-              .then((result4) => {
-                console.info(result4);
+              .then(() => {
+                `Renamed tag '${src}' to '${target}'!`
               })
               .catch(error => console.error(error));
           })
