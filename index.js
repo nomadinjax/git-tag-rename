@@ -5,6 +5,10 @@ const cmd = require("node-cmd");
 
 const getAsync = Promise.promisify(cmd.get, { multiArgs: true, context: cmd });
 
+// CLI syntax: git-tag-rename <old_tag> <new_tag>
+const old_tag = $1;
+const new_tag = $2;
+
 getAsync(`git tag ${new_tag} ${old_tag}`)
   .then(({ stdout }) => {
     console.info(stdout);
