@@ -9,13 +9,10 @@ const getAsync = Promise.promisify(cmd.get, { multiArgs: true, context: cmd });
 // CLI syntax: git-tag-rename --src <old_tag> --target <new_tag>
 const argConfig = [
   { name: "src", alias: "s", type: String },
-  { name: "target", alias: "t", type: Number }
+  { name: "target", alias: "t", type: String }
 ];
 const options = cliArgs(argConfig);
-console.info(options);
 const { src, target } = options;
-console.info('src', src);
-console.info('target', target);
 
 getAsync(`git tag ${target} ${src}`)
   .then((result1) => {
