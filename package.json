@@ -1,0 +1,46 @@
+{
+  "name": "git-tag-rename",
+  "version": "0.0.0-development",
+  "description": "Easily rename a git tag both locally and remotely.",
+  "keywords": [],
+  "homepage": "https://github.com/damonmiller/git-tag-rename#readme",
+  "bugs": {
+    "url": "https://github.com/damonmiller/git-tag-rename/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/damonmiller/git-tag-rename.git"
+  },
+  "license": "MIT",
+  "author": "Damon Miller",
+  "main": "index.js",
+  "bin": {
+    "git-tag-rename": "./index.js"
+  },
+  "scripts": {
+    "commit": "npx git-cz",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "node-cmd": "^3.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "cz-conventional-changelog": "3.1.0",
+    "husky": "^4.2.3",
+    "semantic-release": "^17.0.4"
+  }
+}
